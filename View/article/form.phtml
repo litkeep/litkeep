@@ -1,0 +1,17 @@
+<form method="post">
+	<p>
+		<label>Titulek: </label>
+		<input type="text" name="title" value="<?if( $type == "edit" ):?><?=$article["title"]?><?else:?><?=$_POST["title"]?><?endif?>" required>
+	</p>
+	<p>
+		<label>URL: </label>
+		<input type="text" name="url" value="<?if( $type == "edit" ):?><?=$article["url"]?><?else:?><?=$_POST["url"]?><?endif?>" required>
+	</p>
+	<p>
+		<label>Obsah:</label>
+		<textarea name="content" required><?if( $type == "edit" ):?><?=$article["content"]?><?else:?><?=$_POST["content"]?><?endif?></textarea>
+	</p>
+	<p>
+		<input type="submit" value="Uložit">
+	</p>
+</form>

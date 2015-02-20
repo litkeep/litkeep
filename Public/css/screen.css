@@ -1,0 +1,195 @@
+.clear {
+	clear: both;
+}
+
+.indent {
+	width: 90%;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+header, footer {
+	background: url("../img/bar.png") no-repeat #f7f6f6;
+}
+
+footer {
+	background-color: #4c4242;
+}
+
+input, textarea {
+	border: 1px solid #c0c0c0;
+	padding: 5px 5px 5px 15px;
+	color: #909090;
+	width: 100%;
+}
+
+.search {
+	width: 200px;
+	border: 0;
+	color: #C0C0C0;
+}
+
+.down-5 {
+	position: relative;
+	top: 5px;
+}
+
+.down-15 {
+	position: relative;
+	top: 15px;
+}
+
+#searchSubmit {
+	background: #e57570;
+	padding: 7px;
+	position: relative;
+	left: -5px;
+}
+
+#searchSubmit span {
+	color: white;
+}
+
+ul.nav {
+	list-style-type: none;
+}
+
+ul.nav.horizontal li {
+	float: left;
+	font-size: 12px;
+	padding-left: 15px;
+}
+
+ul.nav li span {
+	background: #e57570;
+	color: white;
+	padding: 0 3px;
+	font-size: 10px;
+	position: relative;
+	top: -8px;
+	left: -2px;
+}
+
+.profile:before {
+	content: url("../img/profile.jpg");
+	position: relative;
+	top: 6px;
+	margin-right: 10px;
+}
+
+.profile {
+	position: relative;
+	top: -16px;
+}
+
+.nav > li > a {
+	padding: 0;
+	margin: 0;
+	color: #FFFFFF;
+	border: 0;
+	display: inline;
+}
+
+body > header .nav a {
+	color: #4d3736;
+	text-decoration: none;
+}
+
+.nav > li > a:hover {
+	background: 0;
+	text-decoration: underline;
+}
+
+h2 {
+	background: #b8b6b6;
+	font-size: 14px;
+	padding: 8px;
+	font-family: "Roboto Slab";
+}
+
+ul.nav.vertical li a {
+	color: #6fbada;
+	font-size: 12px;
+}
+
+ul.nav.vertical li {
+	margin: 5px;
+}
+
+.cart {
+	padding: 10px;
+}
+
+.cart.brown {
+	background-color: #4d3736;
+}
+
+.cart.blue {
+	background-color: #6fbada;
+}
+
+.cart.red {
+	background-color: #e57570;
+}
+
+.events {
+	color: white;
+}
+
+.events h2 {
+	font-size: 20px;
+	background: 0;
+	padding: 0;
+	margin: 0;
+	color: white;
+	margin-bottom: 15px;
+}
+
+.events p {
+	font-size: 12px;
+}
+
+.icons span {
+	width: 15px;
+}
+
+.small-post .first {
+	font-size: 12px;
+}
+
+.small-post .last {
+	font-size: 11px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #F0F0F0;
+}
+
+@media ( max-width: 768px ) {
+	#searchSubmit {
+		display: none;
+	}
+}
+
+@media ( min-width: 768px ) {
+	.right {
+			text-align: right;
+	}
+}
+
+.copyright {
+	color: white;
+	font-size: 11px;
+	position: relative;
+	top: 20px;
+}
+
+footer ul {
+	margin-top: 20px;
+}
+
+.nav-tabs li a {
+	color: #C0C0C0;
+}
+
+.nav-tabs li {
+	padding-right: 20px;
+}

@@ -1,0 +1,9 @@
+<?foreach( $versions as $version ):?>
+	<article>
+		<h2><a href="<?=$base?>/archive/<?=$version["id"]?>"><?=$version["title"]?></a></h2>
+		<p>
+			<em><?=$x->date($version["timestamp"], "d.m.Y")?></em>,
+			<strong><?=$version["user"]["name"]?></strong>
+		</p>
+	</article>
+<?endforeach?>

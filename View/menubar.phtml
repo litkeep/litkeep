@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs">
+  <li role="presentation">
+  		<?if($type!="read"):?><a href="<?=$base?>/explore/<?=$article["url"]?>"><?endif?>
+  				Číst
+  		<?if($type!="read"):?></a><?endif?>
+  </li>
+  <?if( ($article["editable"] or $_SESSION["data"]["admin"]) && $_SESSION["logged"]):?>
+  		<li role="presentation">
+  			<?if($type!="edit"):?><a href="<?=$base?>/edit/<?=$article["url"]?>"><?endif?>
+  				Upravit
+  			<?if($type!="edit"):?></a><?endif?>
+  		</li>
+  <?endif?>
+  <li role="presentation">
+  		<?if($type!="history"):?><a href="<?=$base?>/history/<?=$article["url"]?>"><?endif?>
+  			Historie
+  		<?if($type!="history"):?></a><?endif?>
+  </li>
+  <?if( $_SESSION["logged"] ):?>
+  		<li role="presentation">
+  			<?if($type!="new"):?><a href="<?=$base?>/new/<?=$article["url"]?>"><?endif?>
+  				Nový článek zde
+  			<?if($type!="new"):?></a><?endif?>
+  		</li>
+  <?endif?>
+</ul>

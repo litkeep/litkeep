@@ -1,0 +1,13 @@
+{
+	"": "Homepage:default",
+	"explore/<url>": "Explore:default",
+	"login": "Login:default",
+	"logout": "Login:logout",
+	"edit/<url>": "Article:edit",
+	"new/<parent>": "Article:new",
+	"history/<url>": "History:default",
+	"archive/<id>": "History:show",
+	"profile/<id>": "Identity:profile",
+	"settings/user": "Identity:settings",
+	"group/<url>": "Community:show"
+}

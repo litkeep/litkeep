@@ -1,0 +1,15 @@
+<h2>Nastavení uživatele</h2>
+
+<form method="post">
+	<p>
+		<label>Jméno:</label>
+		<input type="text" name="name" value="<?=$_SESSION["data"]["name"]?>" required>
+	</p>
+	<p>
+		<label>Popis:</label>
+		<textarea name="description" required><?=$_SESSION["data"]["description"]?></textarea>
+	</p>
+	<p>
+		<input type="submit" name="userSettings" value="Nastavit">
+	</p>
+</form>

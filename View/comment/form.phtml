@@ -1,0 +1,13 @@
+<?if( $_SESSION["logged"] ):?>
+	<form method="post">
+		<p>
+			<label>Komentář:</label>
+			<textarea name="content"></textarea>
+		</p>
+		<p>
+			<input type="submit" name="comment" value="Komentovat">
+		</p>
+	</form>
+<?else:?>
+	<p>Abys mohl napsat komentář, musíš se přihlásit.</p>
+<?endif?>

@@ -1,0 +1,10 @@
+{
+	"workspace": "litkeep/public",
+	"title": "LitKeep",
+	"db": {
+		"host": "localhost",
+		"username": "root",
+		"password": "111111",
+		"dbname": "litkeep"
+	}
+}

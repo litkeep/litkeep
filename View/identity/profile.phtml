@@ -1,0 +1,11 @@
+<h2><?=$identity["name"]?></h2>
+
+		<table>
+			<?if( $_SESSION["data"]["id"] == $identity["id"] ):?>
+				<tr>
+					<td><a href="<?=$base?>/settings/user">Nastavení</a></td>
+				</tr>
+			<?endif?>
+		</table>
+
+<p><?=$identity["description"]?></p>
