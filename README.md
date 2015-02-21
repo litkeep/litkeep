@@ -1,6 +1,6 @@
 ![](http://www.itnetwork.cz/images/album/54e855b29c1fb.jpg)
 
-Jedná se o open-source portál pro vývojáře na poli IT. Zaregistrovaný uživatel získá praxy ve svém oboru, teoretické znalosti i reference.
+Jedná se o open-source portál pro vývojáře na poli IT. Zaregistrovaný uživatel získá praxi ve svém oboru, teoretické znalosti i reference.
 
 - studijní materiály spravované všemi uživateli formou WIKI na verzovacím systému
 
