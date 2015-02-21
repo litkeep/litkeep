@@ -89,8 +89,8 @@ abstract class Pattern
         if (!isset($string))
             return null;
         elseif (is_string($string))
-            return htmlspecialchars($string);
-        elseif (is_array($string))
+            return htmlspecialchars($string, ENT_QUOTES);
+        elseif ((array)$string === $string) // is_array
         {
             foreach($string as $k => $v)
             {
