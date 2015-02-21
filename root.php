@@ -29,7 +29,7 @@ if( $config->db["dbname"] != "" ) {
 		$config->db["username"],
 		$config->db["password"]
 	);
-} 
+}
 
 // Spuštění aplikace
 $bootstrap = new Vendor\Bootstrap;

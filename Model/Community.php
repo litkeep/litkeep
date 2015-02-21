@@ -3,6 +3,11 @@ namespace Model;
 
 class Community
 {
+	/**
+	 * Vrátí komunitu podle její URL
+	 * @param  String $url URL komunity
+	 * @return PDOStatement Výsledek dotazu
+	 */
 	public function getByUrl( $url )
 	{
 		return Database::parameters("
@@ -12,6 +17,10 @@ class Community
 		", array( $url ));
 	}
 
+	/**
+	 * Vrátí komunity přihlášeného uživatele
+	 * @return PDOStatement Výsledek dotazu
+	 */
 	public function getMyGroups()
 	{
 		return Database::parameters("
