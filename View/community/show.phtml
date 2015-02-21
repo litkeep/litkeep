@@ -1,3 +1,11 @@
 <h2>Komunita <?=$group["name"]?></h2>
 
 <p><?=$group["description"]?></p>
+
+<h2>Členi</h2>
+
+<ul>
+<?foreach( $members as $member ):?>
+	<li><a href="<?=$base?>/profile/<?=$member["user_id"]?>"><?=$member["name"]?></a> (<?=$member["role"]?>)</li>
+<?endforeach?>
+</ul>

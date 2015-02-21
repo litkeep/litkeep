@@ -19,7 +19,11 @@
   <?if( $_SESSION["logged"] ):?>
   		<li role="presentation">
   			<?if($type!="new"):?><a href="<?=$base?>/new/<?=$article["url"]?>"><?endif?>
+          <?if($article["discussion"]):?>
+          Založit novou diskusi
+          <?else:?>
   				Nový článek zde
+          <?endif?>
   			<?if($type!="new"):?></a><?endif?>
   		</li>
   <?endif?>

@@ -38,6 +38,7 @@ class Community extends Pattern
 		
 		if( !empty( $community ) ) {
 			$this->data["group"] = $community;
+			$this->data["members"] = $this->community->getMembersById( $community["id"] );
 			$this->renderView("community/show");
 		} else {
 			$this->system->error404();

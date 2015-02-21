@@ -2,11 +2,11 @@
 
 <?foreach( $comments as $comment):?>
 	<div class="comment">
-<<<<<<< HEAD
+
 		<p><strong><?=$comment["userData"]["name"]?></strong><br /><em><?=$x->date($comment["timestamp"], "d.m.Y")?></em></p>
-=======
+
 		<p><strong><?=$comment["userData"]["name"]?></strong><br /><em><?=$x->date($comment["userData"]["timestamp"], "d.m.Y")?></em></p>
->>>>>>> 3506036... Added files
+
 		<p><?=$comment["content"]?></p>
 	</div>
 <?endforeach;?>

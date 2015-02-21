@@ -31,4 +31,20 @@ class Community
 			`member`.`user_id` = ?
 		", array( $_SESSION["data"]["id"] ));
 	}
+
+	/**
+	 *  Vrátí členy dané komunity
+	 * @param  Integer $communityId Identifikační číslo komunity
+	 * @return PDOStatement Výsledek dotazu
+	 */
+	public function getMembersById( $communityId )
+	{
+		return Database::parameters("
+			SELECT * FROM `member`
+			INNER JOIN `user` ON
+			`user_id` = `user`.`id`
+			WHERE
+			`community_id` = ?
+		", array( $communityId ));
+	}
 }
