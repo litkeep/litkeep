@@ -73,7 +73,7 @@ class Comment extends Pattern
 	 */
 	private function validateForm()
 	{
-		if( $_POST["content"] == "" ) {
+		if( trim($_POST["content"]) == "" ) {
 			$this->system->flash("Musíš vyplnit obsah komentáře!");
 			return False;
 		} else {
