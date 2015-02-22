@@ -48,7 +48,7 @@ class Version extends Pattern
 		$this->data["type"] = "edit";
 		$this->data["article"] = $article;
 
-		if( !empty( $_POST ) ) {
+		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 			if( $this->validate() ) {
 				$query = $this->version->newVersion( array(
 					"article_id" => $article["article_id"],
@@ -76,7 +76,7 @@ class Version extends Pattern
 	{
 		$this->data["type"] = "new";
 
-		if( !empty( $_POST ) ) {
+		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 			$urlExists = $this->version->getByUrl( $_POST["url"] )->fetch();
 
