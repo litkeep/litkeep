@@ -50,13 +50,17 @@ class Version extends Pattern
 
 		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 			if( $this->validate() ) {
+
+				$active = isset($_POST["active"]) ? 1 : 0;
+
 				$query = $this->version->newVersion( array(
 					"article_id" => $article["article_id"],
 					"author_id" => $_SESSION["data"]["id"],
 					"parent" => $article["parent"],
 					"url" => $_POST["url"],
 					"title" => $_POST["title"],
-					"content" => $_POST["content"]
+					"content" => $_POST["content"],
+					"active" => $active
 				));
 
 				$this->system->flash("Článek byl upraven.");

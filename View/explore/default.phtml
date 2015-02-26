@@ -10,6 +10,12 @@
 		<?foreach( $children as $child):?>
 			<tr><td>
 				<a href="<?=$base?>/explore/<?=$child["url"]?>"><?=$child["title"]?></a>
+				-
+				<?if( $child["active"] ):?>
+					Aktuální
+				<?else:?>
+					Zastaralý
+				<?endif?>
 			</td></tr>
 		<?endforeach?>
 	</table>

@@ -113,16 +113,17 @@ class Version
 	{
 		return Database::parameters("
 			INSERT INTO `version`
-			(`article_id`, `author_id`, `parent`, `url`, `title`, `content`)
+			(`article_id`, `author_id`, `parent`, `url`, `title`, `content`, `active`)
 			VALUES
-			(?, ?, ?, ?, ?, ?)
+			(?, ?, ?, ?, ?, ?, ?)
 		", array(
 			$values["article_id"],
 			$values["author_id"],
 			$values["parent"],
 			$values["url"],
 			$values["title"],
-			$values["content"]
+			$values["content"],
+			$values["active"]
 		));
 	}
 

@@ -28,6 +28,11 @@ class Community extends Pattern
 		$this->system = new Vendor\System;
 	}
 
+	public function actionShow()
+	{
+		$this->data["showGroupMenu"] = True;
+	}
+
 	/**
 	 * Renderovací metoda
 	 * @return void

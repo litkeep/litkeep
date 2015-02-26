@@ -54,6 +54,14 @@
   	<main>
   		<div class="indent row">
   			<section class="col-md-3">
+
+                <?if( $showGroupMenu ):?>
+                    <h2>Menu komunity</h2>
+                    <ul class="nav vertical">
+                      <li><a href="<?=$base?>/explore/souteze">Soutěže</a></li>
+                    </ul>
+                <?endif?>
+
   				<h2>Navigace</h2>
   				<ul class="nav vertical">
 					<li><a href="<?=$base?>/explore/root">Procházet</a></li>
@@ -63,7 +71,7 @@
 						<li><a href="<?=$base?>/profile/<?=$_SESSION["data"]["id"]?>">Profil</a></li>
 						<li><a href="<?=$base?>/logout">Odhlásit</a></li>
 					<?endif?>
-				</ul>
+				  </ul>
 
   				<h2>Tvé komunity</h2>
   				<ul class="nav vertical">
