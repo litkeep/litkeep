@@ -10,17 +10,21 @@
 		<?foreach( $children as $child):?>
 			<tr><td>
 				<a href="<?=$base?>/explore/<?=$child["url"]?>"><?=$child["title"]?></a>
-				-
-				<?if( $child["active"] ):?>
-					Aktuální
-				<?else:?>
-					Zastaralý
-				<?endif?>
 			</td></tr>
 		<?endforeach?>
 	</table>
 
 	<p><?=$article["content"]?></p>
+
+	<p><strong>Hodnocení:</strong> <?=$x->arithmeticMean( $score )?></p>
+
+	<?if( empty($again) ):?>
+	<p>
+		<?for($i=1;$i<=10;$i++):?>
+			<a href="?ac=<?=$i?>"?><?=$i?></a>
+		<?endfor;?>
+	</p>
+	<?endif?>
 </article>
 
 <?=$comment->render( $article["article_id"] )?>

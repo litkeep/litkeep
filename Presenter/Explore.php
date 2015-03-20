@@ -42,6 +42,7 @@ class Explore extends Pattern
 		$this->system = new Vendor\System;
 		$this->comment = new Model\Comment;
 		$this->Comment = new Component\Comment;
+		$this->score = new Model\Score;
 	}
 
 	/**
@@ -53,6 +54,17 @@ class Explore extends Pattern
 	{
 		$this->articleByUrl = $this->version->getByUrl( $this->var["url"] )->fetch();
 		$this->Comment->actionForm( $this->articleByUrl["article_id"] );
+		$this->again = $this->score->getByUserId( $_SESSION["data"]["id"], $this->articleByUrl["id"] )->fetch();
+		
+		if( isset($_GET["ac"]) ) {
+			$this->isLogged();
+
+			if( empty($this->again) ) {
+				$this->score->newScore( $_SESSION["data"]["id"], $this->articleByUrl["id"], $_GET["ac"]);
+			} else {
+				$this->system->flash("Už jsi hlasoval!");
+			}
+		}
 	}
 
 	/**
@@ -74,6 +86,8 @@ class Explore extends Pattern
 			$this->data["if"] = $if;
 			$this->data["comment"] = $this->Comment;
 			$this->data["type"] = "read";
+			$this->data["score"] = $this->score->getByArticleId( $this->articleByUrl["id"] )->fetchAll();
+			$this->data["again"] = $this->again;
 			$this->renderView("menubar");
 			$this->renderView("explore/default");
 		} else {

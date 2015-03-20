@@ -29,6 +29,25 @@ class Helper
 	}
 
 	/**
+	 * Aritmetický průměr
+	 * @param Array[] Hodnoty
+	 * @return Průměr
+	 */
+	public function arithmeticMean( $values )
+	{
+		if( count( $values ) == 0 ) {
+			return 0;
+		} else {
+			$sum = 0;
+			foreach( $values as $value ) {
+				$sum += $value["value"];
+			}
+
+			return $sum / count( $values );
+		}
+	}
+
+	/**
 	 * Validuje řetězec
 	 * @param String[$value] Kontrolovaný řetězec
 	 * @param String[$type] Typ validace EMAIL/IP/INT/BOOLEAN
