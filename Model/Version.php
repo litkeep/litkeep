@@ -144,4 +144,26 @@ class Version
 			$editable
 		));
 	}
+
+	/**
+	 * Vybere podle limitu
+	 * @param Integer Limit
+	 * @access public
+	 * @return PDOStatement Výsledek dotazu
+	 */
+	public function getByLimit( $limit )
+	{
+		$sql = Database::$connection->prepare("
+			SELECT * FROM `version`
+			WHERE
+			id IN (
+			  SELECT MAX(id) FROM version
+			  GROUP BY article_id
+			)
+			LIMIT :limit");
+
+		$sql->bindParam( ":limit", $limit, \PDO::PARAM_INT );
+		$sql->execute();
+		return $sql;
+	}
 }

@@ -17,6 +17,18 @@ class Helper
 	}
 
 	/**
+	 * Ořízne text
+	 * @param String[$text] Text, který má být oříznut
+	 * @param Integer[$number] Na kolik znaků
+	 * @access public
+	 * @return String Oříznutý text
+	 */
+	public function truncate( $text, $number )
+	{
+		return substr( $text, 0, $number);
+	}
+
+	/**
 	 * Validuje řetězec
 	 * @param String[$value] Kontrolovaný řetězec
 	 * @param String[$type] Typ validace EMAIL/IP/INT/BOOLEAN

@@ -58,24 +58,4 @@ class Database
 
 		return $sql;
 	}
-
-	/**
-	 * Vykoná složitý dotaz s parametry a dalšími vlastnostmi
-	 * @access public
-	 * @param string Dotaz
-	 * @param array Parametry dotazu
-	 * @return PDOStatement Výsledek dotazu
-	 */
-	public static function complex( $query, $parameters = array() )
-	{
-		$sql = self::$connection->prepare( $query );
-		
-		foreach( $parameters as $param ) {
-			$sql->bindParam( $param[0], $param[1], $param[2] );
-		}
-
-		$sql->execute();
-
-		return $sql;
-	}
 }
