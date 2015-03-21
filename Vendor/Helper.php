@@ -47,6 +47,13 @@ class Helper
 		}
 	}
 
+	public function texy( $text )
+	{
+		include("Texy.php");
+		$texy = new \Texy;
+		return $texy->process( $text );
+	}
+
 	/**
 	 * Validuje řetězec
 	 * @param String[$value] Kontrolovaný řetězec

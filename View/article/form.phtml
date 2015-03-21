@@ -12,12 +12,6 @@
 		<textarea name="content" required><?if( $type == "edit" ):?><?=$article["content"]?><?else:?><?=$_POST["content"]?><?endif?></textarea>
 	</p>
 	<p>
-		<label>Jedná se o aktuální článek?</label>
-		<input type="checkbox" name="active"
-		<?if( $article["active"] ):?>checked=checked<?endif?>
-		>
-	</p>
-	<p>
 		<input type="submit" value="Uložit">
 	</p>
 </form>

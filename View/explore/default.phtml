@@ -14,7 +14,7 @@
 		<?endforeach?>
 	</table>
 
-	<p><?=$article["content"]?></p>
+	<p><?=$x->texy($article["content"])?></p>
 
 	<p><strong>Hodnocení:</strong> <?=$x->arithmeticMean( $score )?></p>
 

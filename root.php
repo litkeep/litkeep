@@ -33,7 +33,6 @@ if( $config->db["dbname"] != "" ) {
 
 // Spuštění aplikace
 $bootstrap = new Vendor\Bootstrap;
-$auth = new Vendor\Auth;
 
 // Odstraní flash zprávu
 unset($_SESSION["flash"]);
