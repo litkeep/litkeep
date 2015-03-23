@@ -61,6 +61,7 @@ class Explore extends Pattern
 
 			if( empty($this->again) ) {
 				$this->score->newScore( $_SESSION["data"]["id"], $this->articleByUrl["id"], $_GET["ac"]);
+				$this->redirect( $this->articleByUrl["url"] );
 			} else {
 				$this->system->flash("Už jsi hlasoval!");
 			}

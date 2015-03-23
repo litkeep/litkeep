@@ -50,7 +50,8 @@ class User
 			UPDATE `user`
 			SET
 			`name` = :name,
-			`description` = :description
+			`description` = :description,
+			`cv` = :cv
 			WHERE
 			`id` = :id
 		", $values);

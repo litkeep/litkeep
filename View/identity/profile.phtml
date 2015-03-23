@@ -8,4 +8,13 @@
 			<?endif?>
 		</table>
 
-<p><?=$identity["description"]?></p>
+<p><?=$x->texy($identity["description"])?></p>
+
+<h2>Životopis</h2>
+
+<?if( empty($identity["cv"]) ):?>
+	<p>Uživatel si nepřidal žádné CV.</p>
+<?else:?>
+	<p><a href="#">Stáhnout v PDF</a></p>
+	<p><?=$x->texy($identity["cv"])?></p>
+<?endif?>

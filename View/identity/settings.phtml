@@ -6,8 +6,12 @@
 		<input type="text" name="name" value="<?=$_SESSION["data"]["name"]?>" required>
 	</p>
 	<p>
-		<label>Popis:</label>
+		<label>Něco o mně:</label>
 		<textarea name="description" required><?=$_SESSION["data"]["description"]?></textarea>
+	</p>
+	<p>
+		<label>Životopis (strukturovaný/esej):</label>
+		<textarea name="cv" required><?=$_SESSION["data"]["cv"]?></textarea>
 	</p>
 	<p>
 		<input type="submit" name="userSettings" value="Nastavit">

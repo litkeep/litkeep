@@ -1,7 +1,7 @@
 <h2>Nejnovější články</h2>
 <?foreach( $newArticles as $item ):?>
 <article>
-	<p><strong><?=$item["title"]?></strong></p>
+	<p><a href="<?=$base?>/explore/<?=$item["url"]?>"><strong><?=$item["title"]?></strong></a></p>
 	<p><?=$x->truncate($item["content"], 100)?></p>
 
 </article>
