@@ -9,5 +9,7 @@
 	"archive/<id>": "History:show",
 	"profile/<id>": "Identity:profile",
 	"settings/user": "Identity:settings",
-	"group/<url>": "Community:show"
+	"group/<url>": "Community:show",
+	"forum/<url>": "Forum:show",
+	"thread/<url>": "Thread:show"
 }

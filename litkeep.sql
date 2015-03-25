@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Počítač: 127.0.0.1
+-- Vytvořeno: Stř 25. bře 2015, 16:04
+-- Verze serveru: 5.6.21
+-- Verze PHP: 5.6.3
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -20,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `article` (
 `id` int(10) unsigned NOT NULL,
   `editable` tinyint(1) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -34,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `user_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52,14 +61,56 @@ CREATE TABLE IF NOT EXISTS `community` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `helpful`
+-- Struktura tabulky `disc_forum`
 --
 
-CREATE TABLE IF NOT EXISTS `helpful` (
+CREATE TABLE IF NOT EXISTS `disc_forum` (
 `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `score` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `disc_post`
+--
+
+CREATE TABLE IF NOT EXISTS `disc_post` (
+`id` int(11) NOT NULL,
+  `thread_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `disc_thread`
+--
+
+CREATE TABLE IF NOT EXISTS `disc_thread` (
+`id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `forum_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `like`
+--
+
+CREATE TABLE IF NOT EXISTS `like` (
+`id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `value` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -86,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `article_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `value` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -99,8 +150,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `admin` tinyint(1) NOT NULL,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `description` text NOT NULL,
+  `cv` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -117,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `version` (
   `url` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Klíče pro exportované tabulky
@@ -142,9 +194,27 @@ ALTER TABLE `community`
  ADD PRIMARY KEY (`id`);
 
 --
--- Klíče pro tabulku `helpful`
+-- Klíče pro tabulku `disc_forum`
 --
-ALTER TABLE `helpful`
+ALTER TABLE `disc_forum`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Klíče pro tabulku `disc_post`
+--
+ALTER TABLE `disc_post`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Klíče pro tabulku `disc_thread`
+--
+ALTER TABLE `disc_thread`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Klíče pro tabulku `like`
+--
+ALTER TABLE `like`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -179,21 +249,36 @@ ALTER TABLE `version`
 -- AUTO_INCREMENT pro tabulku `article`
 --
 ALTER TABLE `article`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pro tabulku `comment`
 --
 ALTER TABLE `comment`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `community`
 --
 ALTER TABLE `community`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pro tabulku `helpful`
+-- AUTO_INCREMENT pro tabulku `disc_forum`
 --
-ALTER TABLE `helpful`
+ALTER TABLE `disc_forum`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pro tabulku `disc_post`
+--
+ALTER TABLE `disc_post`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pro tabulku `disc_thread`
+--
+ALTER TABLE `disc_thread`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pro tabulku `like`
+--
+ALTER TABLE `like`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pro tabulku `member`
@@ -204,17 +289,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT pro tabulku `score`
 --
 ALTER TABLE `score`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pro tabulku `user`
 --
 ALTER TABLE `user`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `version`
 --
 ALTER TABLE `version`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- Omezení pro exportované tabulky
 --

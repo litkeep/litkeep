@@ -47,4 +47,17 @@ class Community
 			`community_id` = ?
 		", array( $communityId ));
 	}
+
+	public function isMemberById( $communityId, $userId )
+	{
+		$sql = Database::parameters("
+			SELECT * FROM `member`
+			WHERE
+			`user_id` = ?
+			AND
+			`community_id` = ?
+		", array( $userId, $communityId ));
+
+		return !empty($sql->fetch());
+	}
 }

@@ -58,7 +58,7 @@
                 <?if( $showGroupMenu ):?>
                     <h2>Menu komunity</h2>
                     <ul class="nav vertical">
-                      <li><a href="<?=$base?>/explore/souteze">Soutěže</a></li>
+                        <li><a href="<?=$base?>/explore/souteze">Soutěže</a></li>
                     </ul>
                 <?endif?>
 
@@ -73,12 +73,14 @@
 					<?endif?>
 				  </ul>
 
+          <?if( isset($_SESSION["logged"]) ):?>
   				<h2>Tvé komunity</h2>
   				<ul class="nav vertical">
                     <?foreach( $my_groups as $item ):?>
                         <li><a href="<?=$base?>/group/<?=$item["url"]?>"><?=$item["name"]?></a></li>
                     <?endforeach?>
   				</ul>
+          <?endif?>
 
   				<h2>Tvé projekty</h2>
   				<ul class="nav vertical">
