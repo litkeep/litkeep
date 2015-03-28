@@ -1,3 +1,5 @@
+<h2><?=$parent["title"]?></h2>
+
 <?foreach( $threads as $thread ):?>
-	<h2><a href="<?=$base?>/thread/<?=$thread["url"]?>"><?=$thread["title"]?></a></h2>
+	<p><a href="<?=$base?>/thread/<?=$thread["url"]?>"><?=$thread["title"]?></a></p>
 <?endforeach?>

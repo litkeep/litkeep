@@ -1,0 +1,14 @@
+<h2><?=$parent["title"]?></h2>
+
+<?foreach( $comments as $comment):?>
+	<div class="comment">
+
+		<p><strong><?=$comment["userData"]["name"]?></strong><br /><em><?=$x->date($comment["userData"]["timestamp"], "d.m.Y")?></em></p>
+
+		<p><?=$x->texy($comment["content"])?></p>
+	</div>
+<?endforeach;?>
+
+<?if( count($comments) == 0 ):?>
+	<p>Toto vlákno nemá žádné příspěvky.</p>
+<?endif;?>

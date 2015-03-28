@@ -3,10 +3,10 @@ namespace Model;
 
 class Forum
 {
-	public function getIdForumByUrl( $forumUrl )
+	public function getForumByUrl( $forumUrl )
 	{
 		return Database::parameters("
-			SELECT `id` FROM `disc_forum`
+			SELECT * FROM `disc_forum`
 			WHERE
 			`url` = ? 
 		", array($forumUrl));

@@ -26,19 +26,20 @@ class Forum extends Pattern
 	public function start()
 	{
 		$this->forum = new Model\Forum;
-		$this->threads = new Model\Threads;
+		$this->thread = new Model\Thread;
 		$this->system = new Vendor\System;
 	}
 
 	public function renderShow()
 	{
-		$forumId = $this->forum->getIdForumByUrl( $this->var["url"] )->fetch();
-		$forumId = $forumId["id"];
+		$forum = $this->forum->getForumByUrl( $this->var["url"] )->fetch();
 
-		if( !isset( $forumId ) )
+		if( !isset( $forum["id"] ) ) {
 			$this->system->error404();
-
-		$this->data["threads"] = $this->threads->getThreadsByForumId( $forumId )->fetchAll();
-		$this->renderView("forum/forum");
+		} else {
+			$this->data["parent"] = $forum;
+			$this->data["threads"] = $this->thread->getThreadsByForumId( $forum["id"] )->fetchAll();
+			$this->renderView("forum/forum");
+		}
 	}
 }
