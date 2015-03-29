@@ -23,4 +23,4 @@ Open source portál pro vývojáře na poli IT. Zaregistrovaný uživatel získ�
 - má-li někdo nějaký návrh, klidně ho postněte :)
 
 ### Copyright a licence
-Kód je uvolněn pod MIT licencí. Dokumentace pod Creative Commons BY 4.0.
+Kód je uvolněn pod [MIT licencí](https://github.com/litkeep/litkeep/blob/master/LICENSE). Dokumentace pod [Creative Commons BY 4.0](https://github.com/litkeep/litkeep/blob/master/docs/LICENSE).
