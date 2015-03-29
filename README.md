@@ -14,6 +14,8 @@ Jedná se o open-source portál pro vývojáře na poli IT. Zaregistrovaný uži
 
 ### Poznámky
 
+[![Join the chat at https://gitter.im/litkeep/litkeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/litkeep/litkeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 - současný vzhled slouží pouze jako kostra, finální verze bude úplně jiná
 
 - má-li někdo nějaký návrh, klidně ho postněte :)
