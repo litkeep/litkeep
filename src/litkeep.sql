@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
---
--- Počítač: 127.0.0.1
--- Vytvořeno: Stř 25. bře 2015, 16:04
--- Verze serveru: 5.6.21
--- Verze PHP: 5.6.3
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -28,8 +19,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `article` (
 `id` int(10) unsigned NOT NULL,
-  `editable` tinyint(1) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `editable` tinyint(1) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -39,11 +32,11 @@ CREATE TABLE IF NOT EXISTS `article` (
 
 CREATE TABLE IF NOT EXISTS `comment` (
 `id` int(11) NOT NULL,
-  `article_id` int(11) NOT NULL,
+  `guid` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -67,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `community` (
 CREATE TABLE IF NOT EXISTS `disc_forum` (
 `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `url` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -83,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `disc_post` (
   `user_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -169,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `version` (
   `url` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Klíče pro exportované tabulky
@@ -249,12 +243,12 @@ ALTER TABLE `version`
 -- AUTO_INCREMENT pro tabulku `article`
 --
 ALTER TABLE `article`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pro tabulku `comment`
 --
 ALTER TABLE `comment`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pro tabulku `community`
 --
@@ -269,7 +263,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT pro tabulku `disc_post`
 --
 ALTER TABLE `disc_post`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `disc_thread`
 --
@@ -299,7 +293,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT pro tabulku `version`
 --
 ALTER TABLE `version`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Omezení pro exportované tabulky
 --

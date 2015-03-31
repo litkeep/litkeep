@@ -1,8 +1,14 @@
 <?php
 namespace Model;
+use Vendor;
 
 class Comment
 {
+	public function __construct()
+	{
+		$this->auth = new Vendor\Auth;
+	}
+
 	/**
 	 * Vloží komentář
 	 * @param Array([$values]) Pole hodnot 
@@ -13,11 +19,11 @@ class Comment
 	{
 		return Database::parameters("
 			INSERT INTO `comment`
-			(`article_id`, `user_id`, `content`)
+			(`guid`, `user_id`, `content`)
 			VALUES
 			(?, ?, ?)
 		", array(
-			$values["articleId"],
+			$values["guid"],
 			$values["userId"],
 			$values["content"]
 		));
@@ -38,5 +44,19 @@ class Comment
 		", array(
 			$articleId
 		));
+	}
+
+	public function createGuid( $parent_id, $user_id, $timestamp )
+	{
+		return $this->auth->hash( $parent_id . $user_id . $timestamp );
+	}
+
+	public function getByGuid( $guid )
+	{
+		return Database::parameters("
+			SELECT * FROM `comment`
+			WHERE
+			`guid` = ?
+		", array( $guid ));
 	}
 }

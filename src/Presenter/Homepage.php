@@ -2,6 +2,7 @@
 namespace Presenter;
 use Vendor\Pattern as Pattern;
 use Model;
+use Vendor;
 
 class Homepage extends Pattern {
 

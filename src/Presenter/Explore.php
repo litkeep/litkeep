@@ -53,7 +53,7 @@ class Explore extends Pattern
 	public function actionDefault()
 	{
 		$this->articleByUrl = $this->version->getByUrl( $this->var["url"] )->fetch();
-		$this->Comment->actionForm( $this->articleByUrl["article_id"] );
+		$this->Comment->actionForm( $this->comment->createGuid( $this->articleByUrl["article_id"], $this->articleByUrl["user_id"], $this->articleByUrl["timestamp"] ));
 		$this->again = $this->score->getByUserId( $_SESSION["data"]["id"], $this->articleByUrl["id"] )->fetch();
 		
 		if( isset($_GET["ac"]) ) {

@@ -5,7 +5,7 @@
 
 		<p><strong><?=$comment["userData"]["name"]?></strong><br /><em><?=$x->date($comment["userData"]["timestamp"], "d.m.Y")?></em></p>
 
-		<p><?=$comment["content"]?></p>
+		<p><?=$x->texy($comment["content"])?></p>
 	</div>
 <?endforeach;?>
 

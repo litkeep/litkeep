@@ -2,6 +2,7 @@
 namespace Presenter;
 use Vendor\Pattern as Pattern;
 use Model;
+use Component;
 
 class Thread extends Pattern
 {
@@ -14,19 +15,25 @@ class Thread extends Pattern
 		$this->thread = new Model\Thread;
 		$this->post = new Model\Post;
 		$this->user = new Model\User;
+		$this->Comment = new Component\Comment;
+		$this->comment = new Model\Comment;
+	}
+
+	public function actionShow()
+	{
+		$this->data["parent"] = $this->thread->getThreadByUrl( $this->var["url"] )->fetch();
+		$this->Comment->actionForm( $this->comment->createGuid( 
+			$this->data["parent"]["id"], 
+			$this->data["parent"]["user_id"], 
+			$this->data["parent"]["timestamp"]
+		));
 	}
 
 	public function renderShow()
 	{
-		$this->data["parent"] = $this->thread->getThreadByUrl( $this->var["url"] )->fetch();
 		$this->data["comments"] = $this->post->getPostsByThread( $this->data["parent"]["id"] )->fetchAll();
 
-		$i = 0;
-		foreach( $this->data["comments"] as $comment) {
-			$this->data["comments"][ $i ]["userData"] = $this->user->getById( $comment["user_id"] )->fetch();
-			$i++;
-		}
-
+		$this->data["Comment"] = $this->Comment;
 		$this->renderView("forum/thread");
 	}
 }

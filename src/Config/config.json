@@ -1,5 +1,5 @@
 {
-	"workspace": "litkeep/public",
+	"workspace": "litkeep/src/public",
 	"title": "LitKeep",
 	"db": {
 		"host": "localhost",

@@ -20,4 +20,13 @@ class Thread
 			`url` = ?
 		", array( $threadUrl ));
 	}
+
+	public function getById( $id )
+	{
+		return Database::parameters("
+			SELECT * FROM `disc_thread`
+			WHERE
+			`id` = ?
+		", array( $id ));
+	}
 }

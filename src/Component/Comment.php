@@ -23,6 +23,9 @@ class Comment extends Pattern
 		$this->user = new Model\User;
 		$this->comment = new Model\Comment;
 		$this->system = new Vendor\System;
+		$this->article = new Model\Article;
+		$this->thread = new Model\Thread;
+		$this->auth = new Vendor\Auth;
 	}
 
 	/**
@@ -30,12 +33,12 @@ class Comment extends Pattern
 	 * @access public
 	 * @return void
 	 */
-	public function actionForm( $articleId )
+	public function actionForm( $guid )
 	{
 		if( isset($_POST["comment"]) ) {
 			if( $this->validateForm() ) {
 				$this->comment->addComment( array(
-					"articleId" => $articleId,
+					"guid" => $guid,
 					"userId" => $_SESSION["data"]["id"],
 					"content" => $_POST["content"])
 				);
@@ -50,9 +53,13 @@ class Comment extends Pattern
 	 * @access public
 	 * @return void
 	 */
-	public function render( $articleId )
+	public function render( $type, $parentId )
 	{
-		$comments = $this->comment->getByArticleId( $articleId )->fetchAll();
+		$parent = $this->$type->getById( $parentId )->fetch();
+
+		$comments = $this->comment->getByGuid(
+			$this->comment->createGuid( $parent["id"], $parent["user_id"], $parent["timestamp"] )
+		)->fetchAll();
 
 		$i = 0;
 		foreach( $comments as $comment) {
