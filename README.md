@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/litkeep/litkeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/litkeep/litkeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![](http://www.itnetwork.cz/images/album/551ac388d60ec.jpg)
+![](http://www.itnetwork.cz/images/album/551ac4f6665ee.jpg)
 
 Open source portál pro vývojáře na poli IT. Zaregistrovaný uživatel získá praxi ve svém oboru, teoretické znalosti i reference.
 
