@@ -3,3 +3,8 @@
 <?foreach( $threads as $thread ):?>
 	<p><a href="<?=$base?>/thread/<?=$thread["url"]?>"><?=$thread["title"]?></a></p>
 <?endforeach?>
+
+<?if( isset($_SESSION["logged"]) ):?>
+	<h2>Nové vlákno</h2>
+	<?=$Thread->renderForm()?>
+<?endif?>

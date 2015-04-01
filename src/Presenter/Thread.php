@@ -1,6 +1,7 @@
 <?php
 namespace Presenter;
 use Vendor\Pattern as Pattern;
+use Vendor;
 use Model;
 use Component;
 
@@ -17,6 +18,7 @@ class Thread extends Pattern
 		$this->user = new Model\User;
 		$this->Comment = new Component\Comment;
 		$this->comment = new Model\Comment;
+		$this->system = new Vendor\System;
 	}
 
 	public function actionShow()
@@ -33,7 +35,11 @@ class Thread extends Pattern
 	{
 		$this->data["comments"] = $this->post->getPostsByThread( $this->data["parent"]["id"] )->fetchAll();
 
-		$this->data["Comment"] = $this->Comment;
-		$this->renderView("forum/thread");
+		if( $this->data["parent"] ) {
+			$this->data["Comment"] = $this->Comment;
+			$this->renderView("forum/thread");
+		} else {
+			$this->system->error404();
+		}
 	}
 }

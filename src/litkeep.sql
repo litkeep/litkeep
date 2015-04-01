@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Počítač: 127.0.0.1
+-- Vytvořeno: Stř 01. dub 2015, 08:38
+-- Verze serveru: 5.6.21
+-- Verze PHP: 5.6.3
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -68,20 +77,6 @@ CREATE TABLE IF NOT EXISTS `disc_forum` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `disc_post`
---
-
-CREATE TABLE IF NOT EXISTS `disc_post` (
-`id` int(11) NOT NULL,
-  `thread_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `content` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `disc_thread`
 --
 
@@ -92,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `disc_thread` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `title` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -194,12 +189,6 @@ ALTER TABLE `disc_forum`
  ADD PRIMARY KEY (`id`);
 
 --
--- Klíče pro tabulku `disc_post`
---
-ALTER TABLE `disc_post`
- ADD PRIMARY KEY (`id`);
-
---
 -- Klíče pro tabulku `disc_thread`
 --
 ALTER TABLE `disc_thread`
@@ -260,15 +249,10 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 ALTER TABLE `disc_forum`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pro tabulku `disc_post`
---
-ALTER TABLE `disc_post`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT pro tabulku `disc_thread`
 --
 ALTER TABLE `disc_thread`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pro tabulku `like`
 --

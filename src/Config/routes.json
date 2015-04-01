@@ -10,6 +10,7 @@
 	"profile/<id>": "Identity:profile",
 	"settings/user": "Identity:settings",
 	"group/<url>": "Community:show",
+	"forum": "Forum:list",
 	"forum/<url>": "Forum:show",
 	"thread/<url>": "Thread:show"
 }

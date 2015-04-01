@@ -11,4 +11,11 @@ class Forum
 			`url` = ? 
 		", array($forumUrl));
 	}
+
+	public function getAllForums()
+	{
+		return Database::parameters("
+			SELECT * FROM `disc_forum`
+		");
+	}
 }

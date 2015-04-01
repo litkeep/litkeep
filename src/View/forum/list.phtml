@@ -1,0 +1,5 @@
+<h2>Diskuzní fórum</h2>
+
+<?foreach( $forums as $forum ):?>
+	<p><a href="<?=$base?>/forum/<?=$forum["url"]?>"><?=$forum["title"]?></a></p>
+<?endforeach?>

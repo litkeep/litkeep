@@ -3,6 +3,11 @@ namespace Vendor;
 
 class Helper
 {
+	public function __construct()
+	{
+		$this->system = new System;
+	}
+
 	/**
 	 * Upraví formát data
 	 * @param String[$value] Původní čas
