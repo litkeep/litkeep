@@ -30,12 +30,19 @@ class Forum extends Pattern
 		$this->thread = new Model\Thread;
 		$this->system = new Vendor\System;
 		$this->Thread = new Component\Thread;
+		$this->Forum = new Component\Forum;
+	}
+
+	public function actionList()
+	{
+		$this->Forum->actionForm();
 	}
 
 	public function renderList()
 	{
 		$forum = $this->forum->getAllForums()->fetchAll();
 		$this->data["forums"] = $forum;
+		$this->data["Forum"] = $this->Forum;
 		$this->renderView("forum/list");
 	}
 

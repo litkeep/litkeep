@@ -3,3 +3,8 @@
 <?foreach( $forums as $forum ):?>
 	<p><a href="<?=$base?>/forum/<?=$forum["url"]?>"><?=$forum["title"]?></a></p>
 <?endforeach?>
+
+<?if( $isAdmin && $isLogged ):?>
+	<h2>Nové fórum</h2>
+	<?=$Forum->renderForm()?>
+<?endif?>

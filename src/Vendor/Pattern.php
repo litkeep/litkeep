@@ -36,6 +36,8 @@ abstract class Pattern
 		$this->data["title"] = $this->config->title;
 		$this->data["base"] = $this->config->server;
 		$this->data["x"] = $this->helper;
+		$this->data["isLogged"] = isset($_SESSION["logged"] );
+		$this->data["isAdmin"] = $_SESSION["data"]["admin"] == 1;
 	}
 
 	/**
