@@ -6,6 +6,35 @@ use Model;
 
 class Thread extends Pattern
 {
+	/**
+	 * Model\Thread
+	 * @access private
+	 */
+	private $thread;
+
+	/**
+	 * Vendor\Config
+	 * @access private
+	 */
+	private $config;
+
+	/**
+	 * Vendor\System
+	 * @access private
+	 */
+	private $system;
+
+	/**
+	 * Model\Comment
+	 * @access private
+	 */
+	private $comment;
+	
+	/**
+	 * Konstruktor
+	 * @access public
+	 * @return void
+	 */
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,6 +44,12 @@ class Thread extends Pattern
 		$this->comment = new Model\Comment;
 	}
 
+	/**
+	 * Vytvoří nové vlákno
+	 * Action metoda
+	 * @access public
+	 * @return void
+	 */
 	public function actionForm( $thread )
 	{
 		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -47,6 +82,12 @@ class Thread extends Pattern
 		}
 	}
 
+	/**
+	 * Vykreslí formulář pro nové vlákno
+	 * Render metoda
+	 * @access public
+	 * @return void
+	 */
 	public function renderForm()
 	{
 		$this->renderView("forum/thread/new");

@@ -13,6 +13,36 @@ class Comment extends Pattern
 	private $user;
 
 	/**
+	 * Model\Comment
+	 * @access private
+	 */
+	private $comment;
+
+	/**
+	 * Model\Article
+	 * @access private
+	 */
+	private $article;
+
+	/**
+	 * Model\Thread
+	 * @access private
+	 */
+	private $thread;
+
+	/**
+	 * Vendor\System
+	 * @access private
+	 */
+	private $system;
+
+	/**
+	 * Vendor\Auth
+	 * @access private
+	 */
+	private $auth;
+
+	/**
 	 * Konstruktor
 	 * @access public
 	 * @return void

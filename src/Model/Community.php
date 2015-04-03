@@ -60,4 +60,28 @@ class Community
 
 		return !empty($sql->fetch());
 	}
+
+	public function getMemberById( $communityId, $userId )
+	{
+		return Database::parameters("
+			SELECT * FROM `member`
+			WHERE
+			`user_id` = ?
+			AND
+			`community_id` = ?
+		", array( $userId, $communityId ));
+	}
+
+	public function update( $values )
+	{
+		$sql = Database::parameters("
+			UPDATE `community`
+			SET
+			`name` = :name,
+			`description` = :description,
+			`url` = :url
+			WHERE
+			`url` = :urlBefore
+		", $values );
+	}
 }

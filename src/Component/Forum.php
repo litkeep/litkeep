@@ -6,6 +6,29 @@ use Model;
 
 class Forum extends Pattern
 {
+	/**
+	 * Vendor\System
+	 * @access private
+	 */
+	private $system;
+
+	/**
+	 * Vendor\Config
+	 * @access private
+	 */
+	private $config;
+
+	/**
+	 * Model\Forum
+	 * @access private
+	 */
+	private $forum;
+	
+	/**
+	 * Konstruktor
+	 * @access public
+	 * @return void
+	 */
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,6 +37,12 @@ class Forum extends Pattern
 		$this->forum = new Model\Forum;
 	}
 
+	/**
+	 * Vytvoří nové fórum
+	 * Action metoda
+	 * @access public
+	 * @return void
+	 */
 	public function actionForm()
 	{
 		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -31,6 +60,12 @@ class Forum extends Pattern
 		}
 	}
 
+	/**
+	 * Vykreslí formulář pro nové fórum
+	 * Render metoda
+	 * @access public
+	 * @return void
+	 */
 	public function renderForm()
 	{
 		$this->renderView("forum/new");

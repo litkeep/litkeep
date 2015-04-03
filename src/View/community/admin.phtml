@@ -1,0 +1,22 @@
+<h2>Administrace</h2>
+
+<h2>Změna komunity</h2>
+<form method="post">
+	<p>
+		<label>Název:</label>
+		<input type="text" name="name" value="<?=$group["name"]?>">
+	</p>
+
+	<p>
+		<label>Popis:</label>
+		<textarea name="description"><?=$group["description"]?></textarea>
+	</p>
+
+	<p>
+		<label>URL:</label>
+		<input type="text" name="url" value="<?=$group["url"]?>">
+	</p>
+	<p>
+		<input type="submit" name="community" value="Změnit">
+	</p>
+</form>

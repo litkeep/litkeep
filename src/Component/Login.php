@@ -6,6 +6,24 @@ use Vendor;
 class Login extends Pattern
 {
 	/**
+	 * Vendor\System
+	 * @access private
+	 */
+	private $system;
+
+	/**
+	 * Vendor\Auth
+	 * @access private
+	 */
+	private $auth;
+
+	/**
+	 * Vendor\Config
+	 * @access private
+	 */
+	private $config;
+	
+	/**
 	 * Konstruktor
 	 * @access public
 	 * @return void
