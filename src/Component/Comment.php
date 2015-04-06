@@ -56,6 +56,7 @@ class Comment extends Pattern
 		$this->article = new Model\Article;
 		$this->thread = new Model\Thread;
 		$this->auth = new Vendor\Auth;
+		$this->mailbox = new Model\Mailbox;
 	}
 
 	/**

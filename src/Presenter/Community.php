@@ -28,6 +28,7 @@ class Community extends Pattern
 		$this->system = new Vendor\System;
 		$this->communityProfile = $this->community->getByUrl( $this->var["url"] )->fetch();
 		$this->data["member"] = $this->community->getMemberById( $this->communityProfile["id"], $_SESSION["data"]["id"] )->fetch();
+		$this->data["group"] = $this->communityProfile;
 	}
 
 	public function actionShow()
@@ -40,12 +41,9 @@ class Community extends Pattern
 	 * @return void
 	 */
 	public function renderShow()
-	{
-		$community = $this->community->getByUrl( $this->var["url"] )->fetch();
-		
-		if( !empty( $community ) ) {
-			$this->data["group"] = $community;
-			$this->data["members"] = $this->community->getMembersById( $community["id"] );
+	{	
+		if( !empty( $this->communityProfile ) ) {
+			$this->data["members"] = $this->community->getMembersById( $this->communityProfile["id"] );
 			$this->renderView("community/show");
 		} else {
 			$this->system->error404();
@@ -60,6 +58,8 @@ class Community extends Pattern
 	 */
 	public function actionAdmin()
 	{
+		$this->data["showGroupMenu"] = True;
+		
 		if( isset($_POST["community"]) ) {
 			if( $this->validateCommunity() ) {
 				unset( $_POST["community"] );

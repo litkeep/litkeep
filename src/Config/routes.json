@@ -13,5 +13,7 @@
 	"group/<url>/admin": "Community:admin",
 	"forum": "Forum:list",
 	"forum/<url>": "Forum:show",
-	"thread/<url>": "Thread:show"
+	"forum/<forum>/<url>": "Thread:show",
+	"mail": "Mail:list",
+	"talk/<id>": "Mail:talk"
 }

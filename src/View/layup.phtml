@@ -54,13 +54,13 @@
   	<main>
   		<div class="indent row">
   			<section class="col-md-3">
-
                 <?if( $showGroupMenu ):?>
                     <h2>Menu komunity</h2>
                     <ul class="nav vertical">
                         <li><a href="<?=$base?>/explore/souteze">Soutěže</a></li>
+                        <li><a href="<?=$base?>/forum/<?=$group["url"]?>-group">Komunitní fórum</a>
                         <?if( $member["role"] == "Admin" ):?>
-                        <li><a href="<?=$base?>/group/php/admin">Administrace</a></li>
+                        <li><a href="<?=$base?>/group/<?=$group["url"]?>/admin">Administrace</a></li>
                         <?endif?>
                     </ul>
                 <?endif?>
@@ -73,6 +73,7 @@
 						<li><a href="<?=$base?>/login">Přihlásit</a></li>
 					<?else:?>
 						<li><a href="<?=$base?>/profile/<?=$_SESSION["data"]["id"]?>">Profil</a></li>
+            <li><a href="<?=$base?>/mail">Moje konverzace <span>2</span></a></li>
 						<li><a href="<?=$base?>/logout">Odhlásit</a></li>
 					<?endif?>
 				  </ul>

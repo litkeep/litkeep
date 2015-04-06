@@ -8,7 +8,7 @@ class Forum
 		return Database::parameters("
 			SELECT * FROM `disc_forum`
 			WHERE
-			`url` = ? 
+			`url` = ?
 		", array($forumUrl));
 	}
 
@@ -16,6 +16,8 @@ class Forum
 	{
 		return Database::parameters("
 			SELECT * FROM `disc_forum`
+			WHERE
+			`community_id` = 0
 		");
 	}
 

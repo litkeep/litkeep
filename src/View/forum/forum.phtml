@@ -1,7 +1,7 @@
 <h2><?=$parent["title"]?></h2>
 
 <?foreach( $threads as $thread ):?>
-	<p><a href="<?=$base?>/thread/<?=$thread["url"]?>"><?=$thread["title"]?></a></p>
+	<p><a href="<?=$base?>/forum/<?=$parent["url"]?>/<?=$thread["url"]?>"><?=$thread["title"]?></a></p>
 <?endforeach?>
 
 <?if( isset($_SESSION["logged"]) ):?>

@@ -1,0 +1,10 @@
+<h2>Moje konverzace</h2>
+
+<?foreach( $mailboxes as $mailbox ):?>
+<p><a href="<?=$base?>/talk/<?=$mailbox["id"]?>"><?=$mailbox["title"]?></a></p>
+<p>Účastníci konverzace: 
+	<?foreach( $mailbox["speakers"] as $speaker ):?>
+		<a href="<?=$base?>/profile/<?=$speaker["id"]?>"><?=$speaker["name"]?></a>,
+	<?endforeach?>
+</p>
+<?endforeach?>

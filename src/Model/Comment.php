@@ -51,6 +51,11 @@ class Comment
 		return $this->auth->hash( $parent_id . $user_id . $timestamp );
 	}
 
+	public function createGuidMail( $parent_id, $sender, $recipient, $timestamp )
+	{
+		return $this->auth->hash( $parent_id . $sender . $reciptient . $timestamp );
+	}
+
 	public function getByGuid( $guid )
 	{
 		return Database::parameters("

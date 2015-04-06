@@ -8,13 +8,11 @@ use Component;
 class Thread extends Pattern
 {
 	private $thread;
-	private $post;
 	private $user;
 
 	public function start()
 	{
 		$this->thread = new Model\Thread;
-		$this->post = new Model\Post;
 		$this->user = new Model\User;
 		$this->Comment = new Component\Comment;
 		$this->comment = new Model\Comment;
@@ -33,8 +31,6 @@ class Thread extends Pattern
 
 	public function renderShow()
 	{
-		$this->data["comments"] = $this->post->getPostsByThread( $this->data["parent"]["id"] )->fetchAll();
-
 		if( $this->data["parent"] ) {
 			$this->data["Comment"] = $this->Comment;
 			$this->renderView("forum/thread");

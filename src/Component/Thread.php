@@ -50,33 +50,39 @@ class Thread extends Pattern
 	 * @access public
 	 * @return void
 	 */
-	public function actionForm( $thread )
+	public function actionForm( $forum )
 	{
 		if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 			if( $this->validate() ) {
-				$query = $this->thread->newThread( array(
-					"user_id" => $_SESSION["data"]["id"],
-					"forum_id" => $thread["id"],
-					"url" => urlencode($_POST["title"]),
-					"title" => $_POST["title"]
-				));
 
 				$newAdded = $this->thread->getThreadByUrl( urlencode($_POST["title"]) )->fetch();
 
-				$guid = $this->comment->createGuid( $newAdded["id"], $newAdded["user_id"], $newAdded["timestamp"] );
+				if( !isset($newAdded["id"]) ) {
+					$query = $this->thread->newThread( array(
+						"user_id" => $_SESSION["data"]["id"],
+						"forum_id" => $forum["id"],
+						"url" => urlencode($_POST["title"]),
+						"title" => $_POST["title"]
+					));
 
-				$comment = $this->comment->addComment( array(
-					"guid" => $guid,
-					"userId" => $_SESSION["data"]["id"],
-					"content" => $_POST["content"])
-				);
+					$guid = $this->comment->createGuid( $newAdded["id"], $newAdded["user_id"], $newAdded["timestamp"] );
 
-				if( $query )
-					$this->system->flash("Nové vlákno úspěšně založeno.");
-				else
-					$this->flash("Někde se vyskytl problém.");
-				
-				$this->redirect( $this->config->server . "/thread/" . urlencode($_POST["title"]) );
+					$comment = $this->comment->addComment( array(
+						"guid" => $guid,
+						"userId" => $_SESSION["data"]["id"],
+						"content" => $_POST["content"])
+					);
+
+					if( $query )
+						$this->system->flash("Nové vlákno úspěšně založeno.");
+					else
+						$this->flash("Někde se vyskytl problém.");
+					
+					$this->redirect( $this->config->server . "/forum/" . $forum["url"] . "/" . urlencode($_POST["title"]) );
+				} else {
+					$this->system->flash("Toto vlákno už existuje!");
+					$this->redirect("");
+				}
 			} else
 				$this->redirect("");
 		}
